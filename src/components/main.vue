@@ -1,16 +1,21 @@
 <template>
 	<div class="main">
-		<div class="main-input-wrap"> <label> Name: </label><input type="text" class="mainInput" v-model="name" placeholder="import you want find the name" @keyup.enter="getName" /> </div>
-		
-		<hiLine :persons="namesList"></hiLine>
+		<perponsList></perponsList>
+		<div class="main-input-wrap"> <label> Name: </label>
+			<input type="text" class="mainInput" v-model="name" placeholder="import you want find the name" @keyup.enter="getName" /> 
+		</div>		
+		<hiiLine :persons="namesList"></hiiLine>
 	</div>
 </template>
 <script>
-import hiLine from './list.vue'
+import hiiLine from './list.vue'
+import perponsList from './persons.vue'
+
 export default{
 	name:"index",
 	components:{
-		hiLine
+		hiiLine,
+		perponsList
 	},
 	data(){
 		return {

@@ -1,7 +1,8 @@
 <template>
 	<div class="personslist">
 		<router-link to="/"  class="to-link">返回添加页</router-link>				
-		<h2>Persons List</h2>	
+		<h2>Persons List</h2>
+		<h4>双击修改</h4>	
 		<div v-for="(person,index) in persons" @dblclick="changeName(index)">
 			<span>name:</span>			
 				<span v-show="!tempPerson[index].isChanged">{{person.name}}</span> 									

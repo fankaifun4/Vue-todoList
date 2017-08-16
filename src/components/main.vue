@@ -1,38 +1,30 @@
 <template>
-	<div class="main">
-		<perponsList></perponsList>
-		<div class="main-input-wrap"> <label> Name: </label>
+	<div class="main">		
+		<router-link to="/persons" class="to-link">去名单编辑</router-link>
+		<div class="main-input-wrap"> 
+			<label> Name: </label>
 			<input type="text" class="mainInput" v-model="name" placeholder="import you want find the name" @keyup.enter="getName" /> 
-		</div>		
-		<hiiLine :persons="namesList"></hiiLine>
+		</div>			
+		<hiLine></hiLine>
 	</div>
 </template>
 <script>
-import hiiLine from './list.vue'
-import perponsList from './persons.vue'
+import hiLine from './list.vue'
 
 export default{
 	name:"index",
 	components:{
-		hiiLine,
-		perponsList
+		hiLine		
 	},
 	data(){
 		return {
-			name:"",
-			namesList:[
-				// {
-				// 	name:"fankaixuan",
-				// 	sex:"man",
-				// 	age:"29"
-				// }
-			]
+			name:""		
 		}
 	},
 	methods:{
-		getName(e){					
+		getName(e){								
 			if( this.name=="" || this.name.length<=0 ) return;
-			this.namesList.push({name:this.name})						
+			this.$store.state.perpons.push({name:this.name})						
 		}
 	}
 }
@@ -41,9 +33,9 @@ export default{
 .main{
 	width:600px;
 	margin:0 auto;
-	padding:30px 5px;
-	background: #efefef;
-	border:1px solid #000;
+	padding:10px 15px 15px;
+	background: #eee;
+	border:1px solid #cecece;
 	border-radius: 5px;
 	.main-input-wrap{
 		margin:0 auto;
@@ -56,6 +48,7 @@ export default{
 		display: inline-block;	
 		width:300px;
 	}	
+	
 }
 
 </style>

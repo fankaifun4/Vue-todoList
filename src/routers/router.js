@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Persons from '../components/persons.vue'
+import Main from '../components/main.vue'
+import personList from '../components/personList.vue'
 Vue.use(VueRouter)
 
 const router=new VueRouter({
@@ -8,9 +9,14 @@ const router=new VueRouter({
 	base:__dirname,	
 	routes:[
 		{
-			path:'/persons',
-			name:"persons",
-			component:Persons
+			path:'/',
+			name:"index",
+			component:Main
+		},
+		{
+			path:"/persons",
+			name:'personsList',
+			component:personList
 		}
 	]
 })

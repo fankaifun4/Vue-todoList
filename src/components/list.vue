@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div>		
 		<div class="line-all"><input type="checkbox"  v-model='checkedAll'  id="checkAll" @click="checkAll">  
 		<label for="checkAll">check All  {{ checkedAll }} </label><input type="button" value="删除勾选" @click="deleteChecked"></div>
 		<div class="line-list" v-for="(person,index) in persons">						
@@ -12,38 +12,39 @@
 </template>
 <script>
 	export default{
-		name:'hiLine',
-		props:[
-			'persons'
-		],
+		name:'hiLine',		
 		data(){
 			return{
 				checkedAll:false,			
 			}
 		},
-
 		methods:{
 			deletePerson:function(index){
-				this.$props.persons.splice(index,1);			
+				this.persons.splice(index,1);			
 			},
 			checkAll:function(e){
 				if( this.checkedAll ){
-					this.$props.persons.forEach((item)=>{
+					this.persons.forEach((item)=>{
 						item.checked=true;
 					})
 				}else{
-					this.$props.persons.forEach((item)=>{
+					this.persons.forEach((item)=>{
 						item.checked=false;
 					})
 				}
 			},			
 			deleteChecked:function(){
-				let persons=this.$props.persons;					
+				let persons=this.persons;					
 				for( let i = persons.length - 1; i >= 0; i-- ){
 					if( persons[i].checked ){
 						persons.splice(i,1)
 					}
 				}
+			}
+		},
+		computed:{
+			persons:function(){
+				return this.$store.state.perpons
 			}
 		}
 	}

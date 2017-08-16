@@ -1,7 +1,10 @@
 import Vue from 'vue'
+import store from '../pages/store.js'
 import Router from '../routers/router.js'
-import app from '../components/main.vue'
+import Index from '../components/index.vue'
 new Vue({
-	router:Router,
-	render:arg=>{ return arg(app) }
-}).$mount('#app')
+	el:"#app",
+	store,
+	router:Router,	
+	render:(render)=>render(Index)
+})
